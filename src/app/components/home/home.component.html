@@ -13,7 +13,7 @@
 </form>
 
 <h5>
-  Join Existing Game Room
+  Join Existing Game Room using Game-ID
 </h5>
 <form [formGroup]="userForm" (ngSubmit)="joinGameRoom()">
   <div class="row">
@@ -21,7 +21,7 @@
       <input class="u-full-width" type="text" placeholder="John Doe" formControlName="name">
     </div>
     <div class="six columns">
-      <input class="u-full-width" type="text" placeholder="Room-1" formControlName="room">
+      <input class="u-full-width" type="text" placeholder="Game-ID" formControlName="room">
     </div>
   </div>
   <input class="button-primary" type="submit" value="Join Room">
