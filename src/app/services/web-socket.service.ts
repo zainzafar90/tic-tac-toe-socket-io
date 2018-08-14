@@ -9,7 +9,7 @@ import { Turn } from '../types/turn';
   providedIn: 'root'
 })
 export class WebSocketService {
-  private socket = io(environment.webSocketURL);
+  private socket = io();
 
   currentPlayer: Turn;
 
