@@ -1,0 +1,59 @@
+<div class="board__result board__result--x result">
+  <dl class="result__content">
+
+    <!-- Game Result Title -->
+    <dt class="result__title">
+      {{ gameResult === 2 ? 'CAT WON THE GAME' : 'WINNER' }}!
+    </dt>
+
+    <dd class="result__details">
+      <!-- Display Cross Icon -->
+      <app-cross class="result__icon" *ngIf="gameResult === 0"></app-cross>
+
+      <!-- Display Circle Icon -->
+      <app-circle class="result__icon" *ngIf="gameResult === 1"></app-circle>
+
+      <!-- Dispaly Draw Icon -->
+      <div class="result__emoji" *ngIf="gameResult === 2">😭</div>
+    </dd>
+
+    <!-- Play Again Button -->
+    <button class="result__reset" type="reset" (click)="playAgain()">Play again</button>
+
+  </dl>
+
+  <!-- Display Fireworks -->
+  <ng-container *ngIf="gameResult !== 2">
+    <div class="result__firework-icon" style="--y: 266; --r: 155;">🎉</div>
+    <div class="result__firework-icon" style="--y: 231; --r: 53;">🎉</div>
+    <div class="result__firework-icon" style="--y: 412; --r: 222;">🎉</div>
+    <div class="result__firework-icon" style="--y: 314; --r: 234;">🎉</div>
+    <div class="result__firework-icon" style="--y: 305; --r: 312;">🎉</div>
+    <div class="result__firework-icon" style="--y: 425; --r: 74;">🎉</div>
+    <div class="result__firework-icon" style="--y: 411; --r: 122;">🎉</div>
+    <div class="result__firework-icon" style="--y: 450; --r: 25;">🎉</div>
+    <div class="result__firework-icon" style="--y: 438; --r: 193;">🎉</div>
+    <div class="result__firework-icon" style="--y: 400; --r: 282;">🎉</div>
+    <div class="result__firework-icon" style="--y: 288; --r: 356;">🎉</div>
+    <div class="result__firework-icon" style="--y: 487; --r: 311;">🎉</div>
+    <div class="result__firework-icon" style="--y: 291; --r: 92;">🎉</div>
+    <div class="result__firework-icon" style="--y: 276; --r: 157;">🎉</div>
+    <div class="result__firework-icon" style="--y: 476; --r: 152;">🎉</div>
+    <div class="result__firework-icon" style="--y: 300; --r: 220;">🎉</div>
+    <div class="result__firework-icon" style="--y: 356; --r: 167;">🎉</div>
+    <div class="result__firework-icon" style="--y: 324; --r: 213;">🎉</div>
+    <div class="result__firework-icon" style="--y: 465; --r: 15;">🎉</div>
+    <div class="result__firework-icon" style="--y: 204; --r: 134;">🎉</div>
+    <div class="result__firework-icon" style="--y: 352; --r: 116;">🎉</div>
+    <div class="result__firework-icon" style="--y: 359; --r: 254;">🎉</div>
+    <div class="result__firework-icon" style="--y: 407; --r: 120;">🎉</div>
+    <div class="result__firework-icon" style="--y: 407; --r: 300;">🎉</div>
+    <div class="result__firework-icon" style="--y: 201; --r: 68;">🎉</div>
+    <div class="result__firework-icon" style="--y: 361; --r: 86;">🎉</div>
+    <div class="result__firework-icon" style="--y: 449; --r: 223;">🎉</div>
+    <div class="result__firework-icon" style="--y: 494; --r: 60;">🎉</div>
+    <div class="result__firework-icon" style="--y: 264; --r: 8;">🎉</div>
+    <div class="result__firework-icon" style="--y: 379; --r: 48;">🎉</div>
+  </ng-container>
+
+</div>

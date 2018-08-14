@@ -1,0 +1,28 @@
+path {
+  -webkit-animation-duration: 0.25s;
+          animation-duration: 0.25s;
+  stroke: #36dbd7;
+}
+
+path {
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-name: draw;
+          animation-name: draw;
+}
+
+.x path:nth-of-type(2) {
+  -webkit-animation-delay: 0.25s;
+          animation-delay: 0.25s;
+}
+
+@-webkit-keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}

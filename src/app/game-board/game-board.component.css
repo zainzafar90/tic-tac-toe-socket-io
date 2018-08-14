@@ -1,0 +1,262 @@
+.game {
+  height: 420px
+}
+
+svg {
+  height: 100px;
+  width: 100px;
+}
+
+input {
+  opacity: 0;
+}
+
+label {
+  cursor: pointer;
+  height: 100px;
+  width: 100px;
+  z-index: 2;
+}
+
+.cell {
+  position: relative;
+}
+
+input,
+span,
+label {
+  position: absolute;
+}
+
+circle,
+path {
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-name: draw;
+  animation-name: draw;
+}
+
+circle {
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  stroke: #f62459;
+}
+
+path {
+  -webkit-animation-duration: 0.25s;
+  animation-duration: 0.25s;
+  stroke: #36dbd7;
+}
+
+span {
+  display: none;
+  -webkit-transform: translate3d(0, 0, 3px);
+  transform: translate3d(0, 0, 3px);
+}
+
+input:checked+span {
+  display: block;
+}
+
+.o {
+  -webkit-transform: rotateY(180deg) rotate(-35deg);
+  transform: rotateY(180deg) rotate(-35deg);
+}
+
+.x path:nth-of-type(2) {
+  -webkit-animation-delay: 0.25s;
+  animation-delay: 0.25s;
+}
+
+.board {
+  height: 300px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  width: 300px;
+}
+
+.board__line {
+  height: 10px;
+  left: calc(var(--x) * 100px);
+  position: absolute;
+  top: calc(var(--y) * 100px);
+  width: 300px;
+}
+
+.board__line path {
+  stroke: #fafafa;
+}
+
+.board__line:nth-of-type(1),
+.board__line:nth-of-type(2) {
+  -webkit-transform: rotate(90deg) translate(-5px, 0);
+  transform: rotate(90deg) translate(-5px, 0);
+  -webkit-transform-origin: left center;
+  transform-origin: left center;
+}
+
+.board__line:nth-of-type(3),
+.board__line:nth-of-type(4) {
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+}
+
+.board__line:nth-of-type(1) path {
+  -webkit-animation-delay: 0.25s;
+  animation-delay: 0.25s;
+}
+
+.board__line:nth-of-type(2) path {
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+}
+
+.board__line:nth-of-type(3) path {
+  -webkit-animation-delay: 0.75s;
+  animation-delay: 0.75s;
+}
+
+.board__line:nth-of-type(4) path {
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+.result__emoji {
+  font-size: 5rem;
+}
+
+.result__icon path:nth-of-type(1) {
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+.result__icon path:nth-of-type(2) {
+  -webkit-animation-delay: 1.4s;
+  animation-delay: 1.4s;
+}
+
+.result__icon circle {
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+.result__firework-icon {
+  -webkit-animation: fly 0.75s 1s;
+  animation: fly 0.75s 1s;
+  -webkit-animation-fill-mode: backwards;
+  animation-fill-mode: backwards;
+  -webkit-animation-timing-function: cubic-bezier(0, 0.64, 0.25, 1.01);
+  animation-timing-function: cubic-bezier(0, 0.64, 0.25, 1.01);
+  font-size: 2rem;
+  height: 2rem;
+  left: 50%;
+  margin-left: -1rem;
+  margin-top: -1rem;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: rotate(calc(var(--r) * 1deg)) translateY(calc(var(--y) * -1px));
+  transform: rotate(calc(var(--r) * 1deg)) translateY(calc(var(--y) * -1px));
+  width: 2rem;
+}
+
+:checked~label:nth-of-type(odd),
+:checked~ :checked~ :checked~label:nth-of-type(odd),
+:checked~ :checked~ :checked~ :checked~ :checked~label:nth-of-type(odd),
+:checked~ :checked~ :checked~ :checked~ :checked~ :checked~ :checked~label:nth-of-type(odd),
+:checked~ :checked~label:nth-of-type(even),
+:checked~ :checked~ :checked~ :checked~label:nth-of-type(even),
+:checked~ :checked~ :checked~ :checked~ :checked~ :checked~label:nth-of-type(even),
+:checked~ :checked~ :checked~ :checked~ :checked~ :checked~ :checked~ :checked~label:nth-of-type(even) {
+  -webkit-transform: translate3d(0, 0, 2px);
+  transform: translate3d(0, 0, 2px);
+}
+
+:checked~label:nth-of-type(even),
+:checked~ :checked~ :checked~label:nth-of-type(even),
+:checked~ :checked~ :checked~ :checked~ :checked~label:nth-of-type(even),
+:checked~ :checked~ :checked~ :checked~ :checked~ :checked~ :checked~label:nth-of-type(even),
+:checked~ :checked~label:nth-of-type(odd),
+:checked~ :checked~ :checked~ :checked~label:nth-of-type(odd),
+:checked~ :checked~ :checked~ :checked~ :checked~ :checked~label:nth-of-type(odd),
+:checked~ :checked~ :checked~ :checked~ :checked~ :checked~ :checked~ :checked~label:nth-of-type(odd) {
+  -webkit-transform: translate3d(0, 0, -1px);
+  transform: translate3d(0, 0, -1px);
+}
+
+:checked~ :checked~ :checked~ :checked~ :checked~ :checked~ :checked~ :checked~ :checked~.board__result--draw {
+  display: block;
+}
+
+@-webkit-keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@-webkit-keyframes fadeBg {
+  from {
+    background: rgba(31, 58, 147, 0);
+  }
+}
+
+@keyframes fadeBg {
+  from {
+    background: rgba(31, 58, 147, 0);
+  }
+}
+
+@-webkit-keyframes fly {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  5%,
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fly {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  5%,
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes flyIn {
+  from {
+    -webkit-transform: translateY(100%) scale(0);
+    transform: translateY(100%) scale(0);
+  }
+}
+
+@keyframes flyIn {
+  from {
+    -webkit-transform: translateY(100%) scale(0);
+    transform: translateY(100%) scale(0);
+  }
+}

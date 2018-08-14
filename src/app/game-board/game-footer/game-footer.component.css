@@ -1,0 +1,9 @@
+.game-footer {
+  width: 300px;
+}
+
+.game-footer .sub-title {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  text-align: center;
+}

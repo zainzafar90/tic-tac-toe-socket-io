@@ -1,0 +1,12 @@
+ <div class="game-footer">
+    <div class="flex justify-space-between">
+      <div class="flex flex-column">
+        <h6 class="sub-title">{{ currentPlayer === 1? 'You' : 'Opponent'}}</h6>
+        <app-circle class="zoom-half" [ngClass]="{'active': 1 === turn}"></app-circle>
+      </div>
+      <div class="flex flex-column">
+        <h6 class="sub-title">{{ currentPlayer === 2? 'You' : 'Opponent'}}</h6>
+        <app-cross class="zoom-half" [ngClass]="{'active': 2 === turn}"></app-cross>
+      </div>
+    </div>
+  </div>

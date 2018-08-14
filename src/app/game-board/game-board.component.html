@@ -1,0 +1,39 @@
+<div class="flex flex-column">
+  <div class="game">
+    <div class="board">
+
+      <ng-container *ngIf="!gameEnded">
+        <!-- Display Game Board -->
+        <svg class="board__line" style="--x: 1; --y: 0;">
+          <path d="M 5 5 L 295 5" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="300" stroke-dashoffset="300"></path>
+        </svg>
+        <svg class="board__line" style="--x: 2; --y: 0;">
+          <path d="M 5 5 L 295 5" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="300" stroke-dashoffset="300"></path>
+        </svg>
+        <svg class="board__line" style="--x: 0; --y: 1;">
+          <path d="M 5 5 L 295 5" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="300" stroke-dashoffset="300"></path>
+        </svg>
+        <svg class="board__line" style="--x: 0; --y: 2;">
+          <path d="M 5 5 L 295 5" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="300" stroke-dashoffset="300"></path>
+        </svg>
+
+        <div *ngFor="let cell of grid; let i=index;" class="cell" [ngStyle]="{'left': cell.x * 100 + 'px', 'top': cell.y * 100 + 'px'}">
+          <input type="checkbox" checked="true" />
+          <span>
+            <!-- Checkbox O -->
+            <app-circle *ngIf="grid[i].mark === mark.CIRCLE"></app-circle>
+
+            <!-- Checkbox X -->
+            <app-cross *ngIf="grid[i].mark === mark.CROSS"></app-cross>
+          </span>
+          <label (click)="markTile(i)"></label>
+        </div>
+      </ng-container>
+
+      <!-- Game Result -->
+      <app-game-result-model *ngIf="gameEnded" [gameResult]="gameResult" (resetGame)="onResetGame()"></app-game-result-model>
+
+    </div>
+  </div>
+  <app-game-footer [turn]="turn"></app-game-footer>
+</div>

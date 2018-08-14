@@ -1,0 +1,135 @@
+.board__result {
+  -webkit-animation: fadeBg 0.25s 0.5s;
+  animation: fadeBg 0.25s 0.5s;
+  -webkit-animation-fill-mode: backwards;
+  animation-fill-mode: backwards;
+  background: #1f3a93;
+  display: block;
+  height: 100%;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transform: translate3d(0, 0, 4px);
+  transform: translate3d(0, 0, 4px);
+  width: 100%;
+}
+
+.result__content {
+  align-items: center;
+  -webkit-animation: flyIn 0.25s 0.75s;
+  animation: flyIn 0.25s 0.75s;
+  -webkit-animation-fill-mode: backwards;
+  animation-fill-mode: backwards;
+  background: #fafafa;
+  border-radius: 10px;
+  color: #1f3a93;
+  display: flex;
+  -webkit-filter: drop-shadow(0 10px 10px #000);
+  filter: drop-shadow(0 10px 10px #000);
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 3;
+}
+
+.result__title {
+  font-size: 1.5rem;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+
+.result__details {
+  margin: 0;
+}
+
+.result__shield {
+  -webkit-animation: fadeBg 0.25s 0.5s;
+  animation: fadeBg 0.25s 0.5s;
+  -webkit-animation-fill-mode: backwards;
+  animation-fill-mode: backwards;
+  background: #1f3a93;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.result__emoji {
+  font-size: 5rem;
+}
+
+@-webkit-keyframes fadeBg {
+  from {
+    background: rgba(31,58,147,0);
+  }
+}
+
+@keyframes fadeBg {
+  from {
+    background: rgba(31,58,147,0);
+  }
+}
+
+
+/* BUTTON */
+
+button {
+  cursor: pointer;
+  position: absolute;
+  bottom: 20px;
+  border-radius: 4px;
+  border: 0;
+  background: #1f3a93;
+  font-size: 0.75rem;
+  color: #fafafa;
+  -webkit-filter: drop-shadow(0 5px 5px #888);
+  filter: drop-shadow(0 5px 5px #888);
+  transition: -webkit-transform 0.1s, -webkit-filter 0.1s;
+  transition: transform 0.1s, filter 0.1s;
+  transition: transform 0.1s, filter 0.1s, -webkit-transform 0.1s, -webkit-filter 0.1s;
+}
+
+button:hover {
+  -webkit-filter: drop-shadow(0 5px 4px #888);
+  filter: drop-shadow(0 5px 4px #888);
+  -webkit-transform: translateY(1px);
+  transform: translateY(1px);
+}
+
+button:active {
+  -webkit-transform: translateY(5px);
+  transform: translateY(5px);
+  -webkit-filter: drop-shadow(0 0 0 transparent);
+  filter: drop-shadow(0 0 0 transparent);
+}
+
+/* FIREWORKS */
+
+.result__firework-icon {
+  -webkit-animation: fly 0.75s 1s;
+  animation: fly 0.75s 1s;
+  -webkit-animation-fill-mode: backwards;
+  animation-fill-mode: backwards;
+  -webkit-animation-timing-function: cubic-bezier(0, 0.64, 0.25, 1.01);
+  animation-timing-function: cubic-bezier(0, 0.64, 0.25, 1.01);
+  font-size: 2rem;
+  height: 2rem;
+  left: 50%;
+  margin-left: -1rem;
+  margin-top: -1rem;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: rotate(calc(var(--r) * 1deg)) translateY(calc(var(--y) * -1px));
+  transform: rotate(calc(var(--r) * 1deg)) translateY(calc(var(--y) * -1px));
+  width: 2rem;
+}
