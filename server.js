@@ -1,6 +1,10 @@
-let app = require('express')();
+var express = require("express");
+let app = express();
 let http = require('http').Server(app);
 let io = require('socket.io')(http);
+
+var distDir = __dirname + "/dist";
+app.use(express.static(distDir));
 
 let rooms = 0;
 
@@ -8,7 +12,7 @@ io.on('connection', (socket) => {
 
   // Create a new game room and notify the creator of game.
   socket.on('createGame', (data) => {
-    console.log(`${rooms+1} Created`);
+    // console.log(`${rooms+1} Created`);
     socket.join(`${++rooms}`);
     socket.emit('newGame', {
       name: data.name,
@@ -21,7 +25,9 @@ io.on('connection', (socket) => {
     var room = io.nsps['/'].adapter.rooms[`${data.room}`];
     if (room && room.length === 1) {
       socket.join(`${data.room}`);
-      socket.broadcast.to(`${data.room}`).emit('player1', { room: data.room});
+      socket.broadcast.to(`${data.room}`).emit('player1', {
+        room: data.room
+      });
       socket.emit('player2', {
         name: data.name,
         room: data.room
@@ -37,7 +43,7 @@ io.on('connection', (socket) => {
    * Handle the turn played by either player and notify the other.
    */
   socket.on('playTurn', (data) => {
-    console.log(data.tile, data.room);
+    // console.log(data.tile, data.room);
     socket.broadcast.to(data.room).emit('turnPlayed', {
       tile: data.tile,
       room: `${data.room}`
@@ -49,7 +55,7 @@ io.on('connection', (socket) => {
    * Notify the players about the victor.
    */
   socket.on('gameEnded', (data) => {
-    console.log('gameEnded', data);
+    // console.log('gameEnded', data);
     socket.broadcast.to(`${data.room}`).emit('gameEnd', data);
   });
 
